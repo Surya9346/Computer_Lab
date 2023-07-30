@@ -1,9 +1,11 @@
 import React from 'react'
 import './Home.css'
+import Navbar from './Navbar'
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <div className='row homebg p-5'>
         <div className='col-8'>
           <h2 className='head'>About BVRIT</h2>
