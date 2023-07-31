@@ -29,7 +29,7 @@ const StudentPageOne = () => {
             </Link>
             <Link to='/'>
               <li className="nav-item m-3">
-                <button className='btn btn-primary'>Logout</button>
+                <button className='btn btn-primary' style={{height:'45px',width:'110px'}}>Logout</button>
               </li>
             </Link>
           </ul>

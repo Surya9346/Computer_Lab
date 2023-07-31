@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <div className="navbar-brand">
-              <img src="https://bvrit.ac.in/wp-content/uploads/2023/04/BVRIT-engineering-technology-college-logo-narsapur.webp" alt='' className='mlogo'/>
+              <img src="https://asset.brandfetch.io/id19-jVFJl/idHpZGlfNI.png" alt='' className='mlogo'/>
             </div>
             <button
               className="navbar-toggler"
