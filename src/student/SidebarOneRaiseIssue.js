@@ -18,11 +18,16 @@ const SidebarOneRaiseIssue = () => {
           </div>
           <ul className="nav flex-column">
             <li className="nav-item">
-              <p className="nav-link active">Raise Issue</p>
+              <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Raise Issue</p>
             </li>
             <Link to='/IssuesRaised'>
               <li className="nav-item">
-                <p className="nav-link">Issues Raised</p>
+                <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Issues Raised</p>
+              </li>
+            </Link>
+            <Link to='/ChangePassword'>
+              <li className='nav-item'>
+                <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Change Password</p>
               </li>
             </Link>
             <Link to='/'>

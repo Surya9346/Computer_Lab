@@ -9,6 +9,7 @@ import AdminPageOne from './admin/AdminPageOne';
 import LabDetails from './admin/LabDetails';
 import SidebarOneRaiseIssue from './student/SidebarOneRaiseIssue';
 import SidebartwoIssuesRaised from './student/SidebarTwoIssuesRaised';
+import ChangePassword from './student/ChangePassword';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/StudentLogin' element={<StudentLogin />} />
+          <Route path='/ChangePassword' element={<ChangePassword />} />
           <Route path='/AdminLogin' element={<AdminLogin />} />
           <Route path='/StudentPageOne' element={<StudentPageOne />} />
           <Route path='/RaiseIssue' element={<SidebarOneRaiseIssue />} />

@@ -2,8 +2,9 @@ import React from 'react'
 import './StudentPageOne.css'
 import {Link} from 'react-router-dom'
 import Navbar2 from '../Navbar2'
+import ChangePassword from './ChangePassword'
 
-const StudentPageOne = () => {
+const SidebarThreeChangePassword = () => {
   return (
     <div>
         <Navbar2 />
@@ -19,7 +20,7 @@ const StudentPageOne = () => {
           <ul class="nav flex-column">
             <Link to='/RaiseIssue'>
               <li className="nav-item">
-                <p className="nav-link active" style={{fontSize:'14px',fontWeight:'500'}}>Raise Issue</p>
+                <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Raise Issue</p>
               </li>
             </Link>
             <Link to='/IssuesRaised'>
@@ -27,11 +28,9 @@ const StudentPageOne = () => {
                 <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Issues Raised</p>
               </li>
             </Link>
-            <Link to='/ChangePassword'>
-              <li className='nav-item'>
+            <li className='nav-item'>
                 <p className="nav-link" style={{fontSize:'14px',fontWeight:'500'}}>Change Password</p>
-              </li>
-            </Link>
+            </li>
             <Link to='/'>
               <li className="nav-item m-3">
                 <button className='btn btn-primary' style={{height:'45px',width:'110px'}}>Logout</button>
@@ -40,10 +39,11 @@ const StudentPageOne = () => {
           </ul>
         </div>
         <div className='sidecomp pl-2'>
+            <ChangePassword />
         </div>
       </div>
     </div>
   )
 }
 
-export default StudentPageOne;
+export default SidebarThreeChangePassword;
