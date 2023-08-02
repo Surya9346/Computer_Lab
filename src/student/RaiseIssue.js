@@ -15,7 +15,7 @@ const RaiseIssue = () => {
       <form>
         <div>
             <label htmlFor="Labdropdown" className='m-3'>Lab :</label>
-            <select id="Labdropdown" style={{marginLeft:'45px'}} value={selectedLab} onChange={handleDropdownChange}>
+            <select id="Labdropdown" style={{marginLeft:'62px'}} value={selectedLab} onChange={handleDropdownChange}>
                 <option value="">-- Select an option --</option>
                 <option value="Lab1">Lab 1</option>
                 <option value="Lab2">Lab 2</option>
@@ -23,7 +23,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="PCNodropdown" className='m-3'>PC No :</label>
-            <select id="PCNodropdown" style={{marginLeft:'28px'}}>
+            <select id="PCNodropdown" style={{marginLeft:'45px'}}>
                 <option value="">-- Select an option --</option>
                 <option value='PC - 1'>PC - 1</option>
                 <option value='PC - 2'>PC - 2</option>
@@ -65,7 +65,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="IssueTypedropdown" className='m-3'>Issue Type :</label>
-            <select id="IssueTypedropdown">
+            <select id="IssueTypedropdown" style={{marginLeft:'16px'}}>
                 <option value="">-- Select an option --</option>
                 <option value="Power Issue">Power Issue</option>
                 <option value="Software Issue">Software Issue</option>
@@ -73,13 +73,8 @@ const RaiseIssue = () => {
             </select>
         </div>
         <div>
-          <label htmlFor="susername" className='m-3'>Description :</label>
-          <input
-            type="text"
-            name="susername"
-            placeholder="Enter your issue description"
-            style={{width:'220px'}}
-          />
+          <label htmlFor="description" className='m-3'>Description :</label>
+          <textarea id='description' placeholder='Type description of your issue' cols='40' rows='5' style={{marginLeft:'10px'}}></textarea>
         </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
           <button className='btn btn-primary'>Submit</button>
