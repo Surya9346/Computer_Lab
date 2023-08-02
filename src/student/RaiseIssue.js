@@ -73,8 +73,7 @@ const RaiseIssue = () => {
             </select>
         </div>
         <div>
-          <label htmlFor="description" className='m-3'>Description :</label>
-          <textarea id='description' placeholder='Type description of your issue' cols='40' rows='5' style={{marginLeft:'10px'}}></textarea>
+          <textarea placeholder='Type description of your issue' cols='36' rows='3' style={{marginLeft:'15px'}}></textarea>
         </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
           <button className='btn btn-primary'>Submit</button>
