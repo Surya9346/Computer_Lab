@@ -83,4 +83,4 @@ const RaiseIssue = () => {
   );
 };
 
-export default RaiseIssue
+export default RaiseIssue;
