@@ -72,6 +72,15 @@ const RaiseIssue = () => {
                 <option value="Hardware Issue">Hardware Issue</option>
             </select>
         </div>
+        <div>
+          <label htmlFor="susername" className='m-3'>Description :</label>
+          <input
+            type="text"
+            name="susername"
+            placeholder="Enter your issue description"
+            style={{width:'220px'}}
+          />
+        </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
           <button className='btn btn-primary'>Submit</button>
         </div>
