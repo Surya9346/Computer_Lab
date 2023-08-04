@@ -14,10 +14,10 @@ const Home = () => {
           <p className='content'>The purpose of establishing BVRIT was to provide quality technical education in a perfect ambiance for the all-round development of a student. Under the hegemony of our Chairman, Sri K. V. Vishnu Raju, BVRIT made a quantum leap in its reputation for its best teaching-learning practices, high-quality intake, excellent infrastructure facilities, the highest number of placements, etc.</p>
         </div>
         <div className='col-4'>
-          <img src='https://mybvrit.com/wp-content/uploads/2022/05/maxresdefault.jpg' className='bvritimg'/>
+          <img src='https://mybvrit.com/wp-content/uploads/2022/05/maxresdefault.jpg' alt='bvritlogo' className='bvritimg'/>
         </div>
         <div className='col-4'>
-          <img src='https://png.pngtree.com/png-vector/20200610/ourlarge/pngtree-computer-vector-illustration-in-cartoon-style-png-image_2222574.jpg' className='bvritimg'/>
+          <img src='https://png.pngtree.com/png-vector/20200610/ourlarge/pngtree-computer-vector-illustration-in-cartoon-style-png-image_2222574.jpg' alt='bvritlogo' className='bvritimg'/>
         </div>
         <div className='col-8'>
           <h2 className='head'>About Website</h2>

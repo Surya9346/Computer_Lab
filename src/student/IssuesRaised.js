@@ -1,15 +1,42 @@
-import React from 'react'
+import axios from 'axios';
+import React,{useState,useEffect} from 'react'
 
 const IssuesRaised = () => {
-  const data = [
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
-  ];
+  const user = document.cookie.split('=')[1]
+
+  const [res, setData] = useState([]);
+
+  const[data,setDataForTable] = useState([])
+
+  const APIcall = async () => {
+    try {
+      let result = await axios.get('http://localhost:5000/api/issues/' + user)
+      setData(result.data)
+
+      const transformedData = result.data.map(item => ({
+        No: item.ID,
+        Lab: item.lab,
+        PcNo: item.pc,
+        IssueType: item.issue,
+        IssueRaisedDate: item.IssueRaisedDate,
+        IssueResolvedDate: item.IssueResolvedDate,
+        IssueSatus: item.status
+      }));
+      setDataForTable(transformedData);
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
+
+  // make a GET request to get all the issues raised by the student
+
+  useEffect(() => {
+    APIcall();
+  }, []);
+
   return (
-    <div style={{textAlign:"center",paddingLeft:'120px',paddingTop:'30px'}}>
+    <div style={{ textAlign: 'center', paddingLeft: '120px', paddingTop: '30px' }}>
       <table style={{border:"2px solid black"}}>
         <thead>
             <tr>

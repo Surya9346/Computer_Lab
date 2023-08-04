@@ -16,6 +16,40 @@ const StudentLogin = () => {
     e.preventDefault()
     console.log(data)
   };
+
+  const loginHandler = (e) => {
+    e.preventDefault()
+    loginCall()
+  }
+
+  const loginCall = async () => {
+    try {
+      let url = 'http://localhost:5000/api/student/' + susername
+      const response = await fetch(url,{
+        method:'GET',
+        headers:{'Content-Type':'application/json'}
+        // body:JSON.stringify({
+        //   susername,
+        //   spassword
+        // })
+      })
+      const jsonData = await response.json()
+      if(jsonData.password === spassword) {
+        console.log('Login Successful')
+        // window.location.href = '/StudentPageOne' with argument susername
+        // window.location.href = '/StudentPageOne?username=' + susername
+        document.cookie = "username=" + susername
+        window.location.href = '/StudentPageOne'
+      }
+      else {
+        alert('Invalid Credentials')
+      }
+    }
+    catch(err) {
+      console.log(err)
+    }
+  };
+
   return (
     <div>
       <Navbar1 />
@@ -46,7 +80,7 @@ const StudentLogin = () => {
               </div>
               <div className='d-flex justify-content-center'>
                 <Link to='/StudentPageOne'>
-                  <button type="submit" className="btn">
+                  <button type="submit" className="btn" onClick={loginHandler}>
                     Login
                   </button>
                 </Link>

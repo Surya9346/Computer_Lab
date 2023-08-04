@@ -1,13 +1,49 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const RaiseIssue = () => {
+  const user = document.cookie.split('=')[1]
   // State to manage the selected option
   const [selectedLab, setSelectedLab] = useState('');
+  const [selectedPC, setSelectedPC] = useState('');
+  const [selectedIssue, setSelectedIssue] = useState('');
+
+  const handlePcChange = (event) => {
+    setSelectedPC(event.target.value);
+  };
+
+  const handleIssueChange = (event) => {
+    setSelectedIssue(event.target.value);
+  };
 
   // Event handler for dropdown change
   const handleDropdownChange = (event) => {
     setSelectedLab(event.target.value);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    APIcall();
+  };
+
+  const APIcall = async () => {
+    try {
+      const data = {
+        username: user,
+        lab: selectedLab,
+        PC: selectedPC,
+        issue: selectedIssue
+      }
+      let result = await axios.post('http://localhost:5000/api/issues/', data)
+      console.log(result)
+      console.log("success")
+
+      window.location.href = '/StudentPageOne'
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div>
@@ -23,7 +59,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="PCNodropdown" className='m-3'>PC No :</label>
-            <select id="PCNodropdown" style={{marginLeft:'28px'}}>
+            <select id="PCNodropdown" style={{marginLeft:'28px'}} value={selectedPC} onChange={handlePcChange}>
                 <option value="">-- Select an option --</option>
                 <option value='PC - 1'>PC - 1</option>
                 <option value='PC - 2'>PC - 2</option>
@@ -65,7 +101,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="IssueTypedropdown" className='m-3'>Issue Type :</label>
-            <select id="IssueTypedropdown">
+            <select id="IssueTypedropdown" value={selectedIssue} onChange={handleIssueChange}>
                 <option value="">-- Select an option --</option>
                 <option value="Power Issue">Power Issue</option>
                 <option value="Software Issue">Software Issue</option>
@@ -73,7 +109,7 @@ const RaiseIssue = () => {
             </select>
         </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
-          <button className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn btn-primary' onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>

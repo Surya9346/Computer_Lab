@@ -1,8 +1,60 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Navbar1 from '../Navbar1';
+import {useState} from 'react'
 
 const ChangePassword = () => {
+
+    const user = document.cookie.split('=')[1]
+
+    const [newpassword,setNewPassword] = useState('')
+    const [confirmpassword,setConfirmPassword] = useState('')
+
+    const updateHandler = (e) => {
+        e.preventDefault()
+        updateCall()
+    }
+
+    const newpasswordHandler = (e) => {
+        setNewPassword(e.target.value)
+    }
+
+    const confirmpasswordHandler = (e) => {
+        setConfirmPassword(e.target.value)
+    }
+
+    const updateCall = async () => {
+        try {
+            if(newpassword !== confirmpassword) {
+                alert('Passwords do not match')
+                return
+            }
+
+            let url = 'http://localhost:5000/api/student/' + user
+            const response = await fetch(url,{
+                method:'PUT',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({
+                    password : newpassword
+                })
+            })
+            const jsonData = await response.json()
+            
+            // check if jsonData contain field 'affectedRows'
+            if(jsonData.affectedRows === 1) {
+                window.location.href = '/StudentLogin'
+            }
+            else {
+                alert(jsonData.Message)
+            }
+
+            console.log(jsonData)
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
+
   return (
     <div>
         <Navbar1 />
@@ -17,6 +69,7 @@ const ChangePassword = () => {
                         type="text"
                         name="newpassword"
                         placeholder="Enter your new password"
+                        onChange={newpasswordHandler}
                     />
                 </div>
                 <div className="form-group">
@@ -25,11 +78,12 @@ const ChangePassword = () => {
                         type="text"
                         name="confirmpassword"
                         placeholder="Enter your confirm password"
+                        onChange={confirmpasswordHandler}
                     />
                 </div>
                 <div className='d-flex justify-content-center'>
                     <Link to='/StudentLogin'>
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn btn-primary" onClick={updateHandler}>
                             update
                         </button>
                     </Link>
