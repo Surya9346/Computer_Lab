@@ -3,7 +3,50 @@ import './AdminLogin.css'
 import {Link} from 'react-router-dom'
 import Navbar1 from '../Navbar1'
 
+import axios from 'axios'
+
 const AdminLogin = () => {
+
+  const [username,setUsername] = React.useState('')
+  const [password,setPassword] = React.useState('')
+
+  const setUsernameHandler = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const setPasswordHandler = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const loginHandler = (e) => {
+    e.preventDefault()
+    loginCall()
+  }
+
+  const loginCall = async () => {
+    try {
+      // console.log(username,password)
+      let res = await axios.get('http://localhost:5000/api/admin/' + username)
+      // console.log(res.data)
+      if(res.data === password) {
+        
+        document.cookie = "admin=" + username
+
+        console.log('Login Successful')
+        window.location.href = '/AdminPageOne'
+      }
+      else {
+        alert('Invalid Credentials')
+      }
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
+
+
+
+
   return (
     <div>
         <Navbar1 />
@@ -19,6 +62,8 @@ const AdminLogin = () => {
                     id="username"
                     name="username"
                     placeholder="Enter your username"
+                    value={username}
+                    onChange={setUsernameHandler}
                 />
                 </div>
                 <div className="form-group">
@@ -28,11 +73,13 @@ const AdminLogin = () => {
                     id="password"
                     name="password"
                     placeholder="Enter your password"
+                    value={password}
+                    onChange={setPasswordHandler}
                 />
                 </div>
                 <div className='d-flex justify-content-center'>
                   <Link to='/AdminPageOne'>
-                    <button type="submit" className="btn">
+                    <button type="submit" className="btn" onClick={loginHandler}>
                       Login
                     </button>
                   </Link>
