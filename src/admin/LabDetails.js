@@ -1,8 +1,18 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar1 from '../Navbar1';
+import IssuesTable from './IssuesTable';
 
 const Lab1 = () => {
+  const {show,setShow} = useState(false);
+  const ShowTable = () =>{
+    if(show === true){
+      setShow(false)
+    }
+    else{
+      setShow(true)
+    }
+  }
   return (
     <div>
       <Navbar1 />
@@ -80,7 +90,10 @@ const Lab1 = () => {
                 </select>
             </div>
             <div style={{marginLeft:'115px',marginTop:'20px'}}>
-              <button className='btn btn-primary'>Submit</button>
+              <button className='btn btn-primary' onClick={ShowTable}>Submit</button>
+              {
+                show && (<IssuesTable />)
+              }
             </div>
           </form>
         </div>
