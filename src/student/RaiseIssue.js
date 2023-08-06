@@ -29,14 +29,20 @@ const RaiseIssue = () => {
   const APIcall = async () => {
     try {
       const data = {
-        username: user,
+        student: user,
         lab: selectedLab,
-        PC: selectedPC,
+        pc: selectedPC,
         issue: selectedIssue
       }
-      let result = await axios.post('http://localhost:5000/api/issues/', data)
-      console.log(result)
-      console.log("success")
+      console.log(data)
+      const response = await axios.post('http://localhost:5000/api/issues/', data)
+
+      if(response.data==='You have already posted an issue for this PC') {
+        alert(response.data)
+      }
+      else {
+        alert('Issue raised successfully')
+      }
 
       window.location.href = '/StudentPageOne'
     }
@@ -59,7 +65,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="PCNodropdown" className='m-3'>PC No :</label>
-            <select id="PCNodropdown" style={{marginLeft:'45px'}}>
+            <select id="PCNodropdown" style={{marginLeft:'45px'}} onChange={handlePcChange}>
                 <option value="">-- Select an option --</option>
                 <option value='PC - 1'>PC - 1</option>
                 <option value='PC - 2'>PC - 2</option>
@@ -101,7 +107,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="IssueTypedropdown" className='m-3'>Issue Type :</label>
-            <select id="IssueTypedropdown">
+            <select id="IssueTypedropdown" onChange={handleIssueChange}>
                 <option value="">-- Select an option --</option>
                 <option value="Power Issue">Power Issue</option>
                 <option value="Software Issue">Software Issue</option>

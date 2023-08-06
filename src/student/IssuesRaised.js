@@ -18,7 +18,7 @@ const IssuesRaised = () => {
         Lab: item.lab,
         PcNo: item.pc,
         IssueType: item.issue,
-        IssueRaisedDate: item.IssueRaisedDate,
+        IssueRaisedDate: item.IssueRaisedDate.slice(0,10),
         IssueResolvedDate: item.IssueResolvedDate,
         IssueSatus: item.status
       }));
