@@ -89,6 +89,11 @@ const ChangePassword = () => {
                     </Link>
                 </div>
             </form>
+            <Link to='/StudentPageOne'>
+                <p className="ml-2" style={{textAlign:'right',marginRight:'20px'}}>
+                    Back
+                </p>
+            </Link>
             </div>
         </div>
     </div>
