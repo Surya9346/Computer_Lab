@@ -21,7 +21,7 @@ const RaiseIssue = () => {
     setSelectedLab(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event){
     event.preventDefault();
     APIcall();
   };
@@ -112,7 +112,9 @@ const RaiseIssue = () => {
           <textarea placeholder='Type description of your issue' cols='36' rows='3' style={{marginLeft:'15px'}}></textarea>
         </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
-          <button type='submit' className='btn btn-primary' onClick={handleSubmit}>Submit</button>
+          <button type='submit' className='btn btn-primary' onClick={() => {
+            handleSubmit()
+            }}>Submit</button>
         </div>
       </form>
     </div>
