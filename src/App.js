@@ -25,7 +25,6 @@ const App = () => {
           <Route path='/IssuesRaised' element={<SidebartwoIssuesRaised />} />
           <Route path='/AdminPageOne' element={<AdminPageOne />} />
           <Route path='/LabDetails' element={<LabDetails />} />
-          {document.cookie = ""}
         </Routes>
       </BrowserRouter>
     </div>

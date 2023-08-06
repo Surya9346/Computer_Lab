@@ -27,6 +27,9 @@ const AdminLogin = () => {
     try {
       // console.log(username,password)
       let res = await axios.get('http://localhost:5000/api/admin/' + username)
+      if(res==="") {
+        alert('Invalid Credentials')
+      }
       // console.log(res.data)
       if(res.data === password) {
         
