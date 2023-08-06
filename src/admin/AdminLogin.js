@@ -25,7 +25,11 @@ const AdminLogin = () => {
 
   const loginCall = async () => {
     try {
-      // console.log(username,password)
+      if(!username || !password) {
+        alert('Please enter all the fields')
+        return
+      }
+
       let res = await axios.get('http://localhost:5000/api/admin/' + username)
       if(res==="") {
         alert('Invalid Credentials')

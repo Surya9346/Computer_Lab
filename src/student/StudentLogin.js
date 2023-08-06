@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './StudentLogin.css'
-import {Link} from 'react-router-dom'
+import {Link, json} from 'react-router-dom'
 import Navbar1 from '../Navbar1';
 
 const StudentLogin = () => {
@@ -24,6 +24,11 @@ const StudentLogin = () => {
 
   const loginCall = async () => {
     try {
+      if(!susername || !spassword) {
+        alert('Please enter all the fields')
+        return
+      }
+
       let url = 'http://localhost:5000/api/student/' + susername
       const response = await fetch(url,{
         method:'GET',
@@ -33,11 +38,13 @@ const StudentLogin = () => {
         //   spassword
         // })
       })
+      
+      console.log(response)
+
       const jsonData = await response.json()
+
       if(jsonData.password === spassword) {
         console.log('Login Successful')
-        // window.location.href = '/StudentPageOne' with argument susername
-        // window.location.href = '/StudentPageOne?username=' + susername
         document.cookie = "username=" + susername
         window.location.href = '/StudentPageOne'
       }
