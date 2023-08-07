@@ -2,17 +2,56 @@ import React,{ useState } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar1 from '../Navbar1';
 import IssuesTable from './IssuesTable';
+import axios from 'axios';
 
 const Lab1 = () => {
-  const {show,setShow} = useState(false);
-  const ShowTable = () =>{
-    if(show === true){
-      setShow(false)
+  const user = document.cookie.split('=')[1]
+
+  // const getIssues = async () => {
+  //   try {
+
+  const [show, setShow] = useState(false);
+  const [lab, setLab] = useState('');
+  const [pc, setPc] = useState('');
+  const [data, setData] = useState([]);
+
+  const setLabHandler = (e) => {
+    setLab(e.target.value);
+  }
+
+  const setPcHandler = (e) => {
+    setPc(e.target.value);
+  }
+
+  const ShowTable = (e) => {
+    e.preventDefault();
+    APIcall();
+    setShow(true);
+  }
+  
+  const APIcall = async () => {
+    try {
+      let result = await axios.get('http://localhost:5000/api/issues/' + lab + '/' + pc)
+      // setData(result.data)
+      console.log(result.data)
+      const transformedData = result.data.map(item => ({
+        // no: index + 1,
+        No: result.data.indexOf(item) + 1,
+        Lab: item.lab,
+        PcNo: item.pc,
+        IssueType: item.issue,
+        Description: item.description,
+        IssueRaisedDate: item.IssueRaisedDate.slice(0,10),
+        IssueResolvedDate: item.IssueResolvedDate,
+        IssueSatus: item.status
+      }));
+      setData(transformedData);
     }
-    else{
-      setShow(true)
+    catch(err) {
+      console.log(err)
     }
   }
+  
   return (
     <div>
       <Navbar1 />
@@ -23,7 +62,7 @@ const Lab1 = () => {
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
             </svg>
-            <p className='mt-2'>username</p>
+            <p className='mt-2'>{user}</p>
           </div>
           <ul className="nav flex-column">
             <li className="nav-item">
@@ -41,7 +80,7 @@ const Lab1 = () => {
           <form>
             <div>
                 <label htmlFor="Labdropdown" className='m-3'>Lab :</label>
-                <select id="Labdropdown" style={{marginLeft:'45px'}}>
+                <select id="Labdropdown" style={{marginLeft:'45px'}} onChange={setLabHandler}>
                     <option value="">-- Select an option --</option>
                     <option value="Lab1">Lab 1</option>
                     <option value="Lab2">Lab 2</option>
@@ -49,7 +88,7 @@ const Lab1 = () => {
             </div>
             <div>
                 <label htmlFor="PCNodropdown" className='m-3'>PC No :</label>
-                <select id="PCNodropdown" style={{marginLeft:'28px'}}>
+                <select id="PCNodropdown" style={{marginLeft:'28px'}} onChange={setPcHandler}>
                     <option value="">-- Select an option --</option>
                     <option value='PC - 1'>PC - 1</option>
                     <option value='PC - 2'>PC - 2</option>
@@ -91,11 +130,9 @@ const Lab1 = () => {
             </div>
             <div style={{marginLeft:'115px',marginTop:'20px'}}>
               <button className='btn btn-primary' onClick={ShowTable}>Submit</button>
-              {
-                show && (<IssuesTable />)
-              }
             </div>
           </form>
+          {(show)  ? <IssuesTable/>  : null}
         </div>
       </div>
     </div>

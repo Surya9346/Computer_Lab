@@ -14,10 +14,12 @@ const IssuesRaised = () => {
       setData(result.data)
 
       const transformedData = result.data.map(item => ({
-        No: item.ID,
+        // no: index + 1,
+        No: result.data.indexOf(item) + 1,
         Lab: item.lab,
         PcNo: item.pc,
         IssueType: item.issue,
+        Description: item.description,
         IssueRaisedDate: item.IssueRaisedDate.slice(0,10),
         IssueResolvedDate: item.IssueResolvedDate,
         IssueSatus: item.status
@@ -44,6 +46,7 @@ const IssuesRaised = () => {
               <th style={{border:"2px solid black"}} className='p-2'>Lab</th>
               <th style={{border:"2px solid black"}} className='p-2'>PC No</th>
               <th style={{border:"2px solid black"}} className='p-2'>Issue Type</th>
+              <th style={{border:"2px solid black"}} className='p-2'>Description</th>
               <th style={{border:"2px solid black"}} className='p-2'>Issue Raised Date</th>
               <th style={{border:"2px solid black"}} className='p-2'>Issue Resolved Date</th>
               <th style={{border:"2px solid black"}} className='p-2'>Issue Status</th>
@@ -56,6 +59,7 @@ const IssuesRaised = () => {
                 <td style={{border:"2px solid black"}}>{issue.Lab}</td>
                 <td style={{border:"2px solid black"}}>{issue.PcNo}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueType}</td>
+                <td style={{border:"2px solid black"}}>{issue.Description}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueRaisedDate}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueResolvedDate}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueSatus}</td>

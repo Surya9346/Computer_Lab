@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IssuesTable = () => {
+const IssuesTable = (data_table) => {
   const data = [
     { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},
     { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', IssueRaisedDate: '20-07-2023', IssueResolvedDate: '24-07-2023', IssueSatus: 'Resolved'},

@@ -7,6 +7,7 @@ const RaiseIssue = () => {
   const [selectedLab, setSelectedLab] = useState('');
   const [selectedPC, setSelectedPC] = useState('');
   const [selectedIssue, setSelectedIssue] = useState('');
+  const [desc, setDesc] = useState('');
 
   const handlePcChange = (event) => {
     setSelectedPC(event.target.value);
@@ -21,9 +22,13 @@ const RaiseIssue = () => {
     setSelectedLab(event.target.value);
   };
 
-  function handleSubmit(event){
+  const handleSubmit = (event) =>{
     event.preventDefault();
     APIcall();
+  };
+
+  const handleDescChange = (event) => {
+    setDesc(event.target.value);
   };
 
   const APIcall = async () => {
@@ -32,9 +37,20 @@ const RaiseIssue = () => {
         student: user,
         lab: selectedLab,
         pc: selectedPC,
-        issue: selectedIssue
+        issue: selectedIssue,
+        desc: desc
       }
-      console.log(data)
+
+      if(data.lab==='' || data.pc==='' || data.issue==='') {
+        alert('Please fill all the fields')
+        return
+      }
+      
+      if(data.desc.length>100) {
+        alert('Description should be less than 100 characters')
+        return
+      }
+
       const response = await axios.post('http://localhost:5000/api/issues/', data)
 
       if(response.data==='You have already posted an issue for this PC') {
@@ -115,12 +131,10 @@ const RaiseIssue = () => {
             </select>
         </div>
         <div>
-          <textarea placeholder='Type description of your issue' cols='36' rows='3' style={{marginLeft:'15px'}}></textarea>
+          <textarea placeholder='Type description of your issue' cols='36' rows='3' style={{marginLeft:'15px'}} onChange={handleDescChange}></textarea>
         </div>
         <div style={{marginLeft:'115px',marginTop:'20px'}}>
-          <button type='submit' className='btn btn-primary' onClick={() => {
-            handleSubmit()
-            }}>Submit</button>
+          <button type='submit' className='btn btn-primary' onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>
