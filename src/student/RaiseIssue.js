@@ -123,7 +123,7 @@ const RaiseIssue = () => {
         </div>
         <div>
             <label htmlFor="IssueTypedropdown" className='m-3'>Issue Type :</label>
-            <select id="IssueTypedropdown" onChange={handleIssueChange}>
+            <select id="IssueTypedropdown" onChange={handleIssueChange} style={{marginLeft:'20px'}}>
                 <option value="">-- Select an option --</option>
                 <option value="Power Issue">Power Issue</option>
                 <option value="Software Issue">Software Issue</option>
