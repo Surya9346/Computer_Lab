@@ -1,17 +1,8 @@
 .bgfooter{
     background-color:#b6f0dd;
-    text-align: center;
 }
 
 .textclr{
     color: black;
-    margin-top: 7px;
-}
-
-.verLine{
-    border-left: 3px solid black;
-    left: 50%;
-    position: absolute;
-    margin-left: 20px;
-    height: 25px;
+    border-top: 2px;
 }

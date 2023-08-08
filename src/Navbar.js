@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import clglogo from './clglogo.png'
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <div className="navbar-brand">
-              <img src="https://asset.brandfetch.io/id19-jVFJl/idHpZGlfNI.png" alt='' className='mlogo'/>
+              <img src={clglogo} alt='' className='mlogo'/>
             </div>
             <button
               className="navbar-toggler"

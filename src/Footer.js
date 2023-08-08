@@ -3,13 +3,15 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className='bgfooter d-flex flex-row justify-content-center'>
-      <div className=''>
-        <p className='textclr mr-2'>Contact Us</p>
-      </div>
-      <div className='verLine m-2'></div>
+    <div className='bgfooter'>
       <div>
-        <p className='textclr ml-2'>Feedback</p>
+        <h2 className='textclr ml-1 pt-2' style={{textAlign:'left'}}>Contact Us</h2>
+        <p className='textclr ml-4'>Name  : abcdef</p>
+        <p className='textclr ml-4'>Ph.No : 9876543210</p>
+        <p className='textclr ml-4'>Email : abcdef123@gmail.com</p>
+      </div>
+      <div>
+        <h2 className='textclr ml-1 pb-2' style={{fontSize:'25px'}}>Feedback</h2>
       </div>
     </div>
   )
