@@ -2,10 +2,7 @@ import React from 'react'
 import './IssuesTable.css'
 
 const IssuesTable = (data_table) => {
-  const data = [
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', Description: 'desthe haabhsbbdhdd c s  sjddhegfsgfeajaehvdghavdhgvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvsbcbdbcfhakhsahdksahdkhashdsagdhksagdhsfgcadsjvcasjdggsggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', IssueRaisedDate: '20-07-2023', IssueSatus: 'Resolved'},
-    { No: 1, Lab: 'Lab 1', PcNo: 13, IssueType: 'Hardware Issue', Description: 'des', IssueRaisedDate: '20-07-2023', IssueSatus: 'Resolved'},
-  ];
+  const data = data_table.data_table;
   return (
     <div style={{ textAlign: 'center', paddingLeft: '120px', paddingTop: '30px' }}>
       <table style={{border:"2px solid black"}}>
@@ -27,7 +24,7 @@ const IssuesTable = (data_table) => {
                 <td style={{border:"2px solid black"}}>{issue.Lab}</td>
                 <td style={{border:"2px solid black"}}>{issue.PcNo}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueType}</td>
-                <td style={{border:"2px solid black"}} className='des'>{issue.Description}</td>
+                <td style={{border:"2px solid black"}}>{issue.description}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueRaisedDate}</td>
                 <td style={{border:"2px solid black"}}>
                 <select className='pl-5 pr-5'>

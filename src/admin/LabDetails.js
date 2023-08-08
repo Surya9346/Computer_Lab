@@ -24,6 +24,12 @@ const Lab1 = () => {
   }
 
   const ShowTable = (e) => {
+
+    if(!lab || !pc) {
+      alert('Please select both lab and pc')
+      return;
+    }
+
     e.preventDefault();
     APIcall();
     setShow(true);
@@ -33,7 +39,7 @@ const Lab1 = () => {
     try {
       let result = await axios.get('http://localhost:5000/api/issues/' + lab + '/' + pc)
       // setData(result.data)
-      console.log(result.data)
+      // console.log(result.data)
       const transformedData = result.data.map(item => ({
         // no: index + 1,
         No: result.data.indexOf(item) + 1,
@@ -132,7 +138,7 @@ const Lab1 = () => {
               <button className='btn btn-primary' onClick={ShowTable}>Submit</button>
             </div>
           </form>
-          {(show)  ? <IssuesTable/>  : null}
+          {(show)  ? <IssuesTable data_table = {data}/>  : null}
         </div>
       </div>
     </div>
