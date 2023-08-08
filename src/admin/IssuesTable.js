@@ -50,7 +50,7 @@ const IssuesTable = (data_table) => {
                   (
                     <td style={{ border: "2px solid black" }} ><button className='btn btn-primary' onClick={() => handleClick(issue.id, "progress")}>In progress</button></td>
                   )
-                  : <td style={{ border: "2px solid black" }} ><button className='btn btn-primary' onClick={() => handleClick(issue.id, "resolved")}>resolve</button></td>
+                  : <td style={{ border: "2px solid black" }} ><button className='btn btn-primary' onClick={() => handleClick(issue.id, "resolved")}>resolved</button></td>
                 }
               </tr>)
           ))}
