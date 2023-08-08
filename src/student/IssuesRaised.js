@@ -13,6 +13,8 @@ const IssuesRaised = () => {
       let result = await axios.get('http://localhost:5000/api/issues/' + user)
       setData(result.data)
 
+      console.log(result.data)
+
       const transformedData = result.data.map(item => ({
         // no: index + 1,
         No: result.data.indexOf(item) + 1,
@@ -20,7 +22,7 @@ const IssuesRaised = () => {
         PcNo: item.pc,
         IssueType: item.issue,
         Description: item.description,
-        IssueRaisedDate: item.IssueRaisedDate.slice(0,10),
+        IssueRaisedDate: item.IssueRaisedDate,
         IssueResolvedDate: item.IssueResolvedDate,
         IssueSatus: item.status
       }));
@@ -61,7 +63,7 @@ const IssuesRaised = () => {
                 <td style={{border:"2px solid black"}}>{issue.IssueType}</td>
                 <td style={{border:"2px solid black"}}>{issue.Description}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueRaisedDate}</td>
-                <td style={{border:"2px solid black"}}>{issue.IssueResolvedDate}</td>
+                <td style={{border:"2px solid black"}}>{(issue.IssueResolvedDate===null?'':issue.IssueRaisedDate.slice(0,10))}</td>
                 <td style={{border:"2px solid black"}}>{issue.IssueSatus}</td>
             </tr>
             ))}

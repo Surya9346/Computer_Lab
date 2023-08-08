@@ -53,12 +53,7 @@ const RaiseIssue = () => {
 
       const response = await axios.post('http://localhost:5000/api/issues/', data)
 
-      if(response.data==='You have already posted an issue for this PC') {
-        alert(response.data)
-      }
-      else {
-        alert('Issue raised successfully')
-      }
+      alert(response.data)
 
       window.location.href = '/StudentPageOne'
     }

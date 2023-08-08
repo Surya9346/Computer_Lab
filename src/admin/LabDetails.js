@@ -40,18 +40,25 @@ const Lab1 = () => {
       let result = await axios.get('http://localhost:5000/api/issues/' + lab + '/' + pc)
       // setData(result.data)
       // console.log(result.data)
-      const transformedData = result.data.map(item => ({
-        // no: index + 1,
-        No: result.data.indexOf(item) + 1,
-        Lab: item.lab,
-        PcNo: item.pc,
-        IssueType: item.issue,
-        Description: item.description,
-        IssueRaisedDate: item.IssueRaisedDate.slice(0,10),
-        IssueResolvedDate: item.IssueResolvedDate,
-        IssueSatus: item.status
-      }));
+      const transformedData = result.data.map(item => (
+        // if item status is resolved then don't add it to the table
+        item.status === 'resolved' ? null : (
+          {
+            // no: index + 1,
+            No: result.data.indexOf(item) + 1,
+            id: item.ID,
+            Lab: item.lab,
+            PcNo: item.pc,
+            IssueType: item.issue,
+            Description: item.description,
+            IssueRaisedDate: item.IssueRaisedDate,
+            IssueResolvedDate: item.IssueResolvedDate,
+            IssueStatus: item.status
+          }
+        )
+        ));
       setData(transformedData);
+      console.log(transformedData);
     }
     catch(err) {
       console.log(err)
