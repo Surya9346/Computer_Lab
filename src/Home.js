@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css'
 import Navbar from './Navbar'
+import Footer from './Footer';
 
 function clearAllCookies() {
   var cookies = document.cookie.split(";");
@@ -34,9 +35,10 @@ const Home = () => {
         </div>
         <div className='col-8'>
           <h2 className='head'>About Website</h2>
-          <p className='content'>Our Website will try to resolve the computer Laboratory issues remotely.</p>
+          <p className='content'>The laboratories play a significant role in universities since the quality of the facilities and their administration have a direct impact on the institution's teaching and research.The goal of the A Problem Solving Approach For Computer Laboratory Asset Management System project is to create a web-based application with a user login portal and an admin login portal that makes it easier to resolve lab difficulties. This system facilitates communication and issue tracking, allowing for effective problem solving and frequent updates for consumers. By putting this solution into practise, laboratories may streamline their issue management procedures, raise customer satisfaction, and make sure that operations run smoothly. The laboratories of today's academic and research institutions are crucial to education, learning, and scientific research. The way we communicate, obtain information, and conduct business on the Internet has evolved as a result of advancements in web technology. The project's objective is to improve customer satisfaction, communication, and lab issue management effectiveness..</p>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
