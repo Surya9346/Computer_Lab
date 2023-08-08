@@ -48,9 +48,9 @@ const IssuesTable = (data_table) => {
                 <td style={{ border: "2px solid black" }}>{issue.IssueStatus}</td>
                 {(issue.IssueStatus === "pending") ?
                   (
-                    <td style={{ border: "2px solid black" }}><button onClick={() => handleClick(issue.id, "progress")}>In progress</button></td>
+                    <td style={{ border: "2px solid black" }} ><button className='btn btn-primary' onClick={() => handleClick(issue.id, "progress")}>In progress</button></td>
                   )
-                  : <td style={{ border: "2px solid black" }}><button onClick={() => handleClick(issue.id, "resolved")}>resolve</button></td>
+                  : <td style={{ border: "2px solid black" }} ><button className='btn btn-primary' onClick={() => handleClick(issue.id, "resolved")}>resolve</button></td>
                 }
               </tr>)
           ))}
