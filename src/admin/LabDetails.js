@@ -46,6 +46,7 @@ const Lab1 = () => {
           {
             // no: index + 1,
             No: result.data.indexOf(item) + 1,
+            username: item.student,
             id: item.ID,
             Lab: item.lab,
             PcNo: item.pc,
@@ -58,7 +59,6 @@ const Lab1 = () => {
         )
         ));
       setData(transformedData);
-      console.log(transformedData);
     }
     catch(err) {
       console.log(err)
