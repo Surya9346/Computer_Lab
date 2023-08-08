@@ -29,7 +29,7 @@ const IssuesTable = (data_table) => {
                 <td style={{border:"2px solid black"}}>
                 <select className='pl-5 pr-5'>
                   <option value="pending">pending</option>
-                  <option value="work in progess">work in progess </option>
+                  <option value="work in progess">work in progess</option>
                   <option value="resolved">Resolved</option>
                 </select>
                 </td>
