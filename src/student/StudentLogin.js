@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './StudentLogin.css'
 import {Link, json} from 'react-router-dom'
 import Navbar1 from '../Navbar1';
+import axios from 'axios'
 
 const StudentLogin = () => {
   const [data,setData] = useState({
@@ -20,6 +21,22 @@ const StudentLogin = () => {
   const loginHandler = (e) => {
     e.preventDefault()
     loginCall()
+  }
+
+  const forgotPasswordHandler = (e) => {
+    e.preventDefault()
+    forgotPasswordCall()
+  }
+
+  const forgotPasswordCall = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/student/forgotPassword/' + susername)
+      alert("Password sent to your email")
+      console.log(res)
+    }
+    catch(err) {
+      console.log(err)
+    }
   }
 
   const loginCall = async () => {
@@ -92,6 +109,8 @@ const StudentLogin = () => {
                   </button>
                 </Link>
               </div>
+              <br/>
+              <p onClick={forgotPasswordHandler}><a href=''>Forgot Password?</a></p>
           </form>
         </div>
       </div>
