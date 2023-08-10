@@ -1,7 +1,7 @@
 import React from 'react'
 import './StudentPageOne.css'
 import {Link} from 'react-router-dom'
-import Navbar1 from '../Navbar1'
+import Navbar2 from '../Navbar2'
 
 const StudentPageOne = () => {
   // const user = window.location.search.split('=')[1]
@@ -15,7 +15,7 @@ const StudentPageOne = () => {
 
   return (
       <div>
-        <Navbar1 />
+        <Navbar2 />
         <div className='d-flex flex-row'>
         <div className='side-bar'>
           <div className='d-flex flex-row m-2' style={{textAlign:'center',border:'2px solid black',borderRadius:'25px'}}>
