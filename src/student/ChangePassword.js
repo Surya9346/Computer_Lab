@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Navbar1 from '../Navbar1';
 import {useState} from 'react'
+import Navbar2 from '../Navbar2'
 
 const ChangePassword = () => {
 
@@ -40,7 +40,6 @@ const ChangePassword = () => {
             })
             const jsonData = await response.json()
             
-            // check if jsonData contain field 'affectedRows'
             if(jsonData.affectedRows === 1) {
                 window.location.href = '/StudentLogin'
             }
@@ -57,7 +56,7 @@ const ChangePassword = () => {
 
   return (
     <div>
-        <Navbar1 />
+        <Navbar2 />
         <div className='body p-5'>
             <div className="container" style={{marginTop:'50px'}}>
             <h2>Change Password</h2>

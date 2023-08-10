@@ -2,7 +2,6 @@ import React from 'react'
 import './AdminLogin.css'
 import {Link} from 'react-router-dom'
 import Navbar1 from '../Navbar1'
-
 import axios from 'axios'
 
 const AdminLogin = () => {
@@ -34,7 +33,6 @@ const AdminLogin = () => {
       if(res==="") {
         alert('Invalid Credentials')
       }
-      // console.log(res.data)
       if(res.data === password) {
         
         document.cookie = "admin=" + username
@@ -50,9 +48,6 @@ const AdminLogin = () => {
       console.log(err)
     }
   }
-
-
-
 
   return (
     <div>

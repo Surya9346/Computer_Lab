@@ -1,15 +1,11 @@
 import React,{ useState } from 'react'
 import {Link} from 'react-router-dom'
-import Navbar1 from '../Navbar1';
-import IssuesTable from './IssuesTable';
-import axios from 'axios';
+import IssuesTable from './IssuesTable'
+import axios from 'axios'
+import Navbar2 from '../Navbar2'
 
 const Lab1 = () => {
   const user = document.cookie.split('=')[1]
-
-  // const getIssues = async () => {
-  //   try {
-
   const [show, setShow] = useState(false);
   const [lab, setLab] = useState('');
   const [pc, setPc] = useState('');
@@ -38,13 +34,9 @@ const Lab1 = () => {
   const APIcall = async () => {
     try {
       let result = await axios.get('http://localhost:5000/api/issues/' + lab + '/' + pc)
-      // setData(result.data)
-      // console.log(result.data)
       const transformedData = result.data.map(item => (
-        // if item status is resolved then don't add it to the table
         item.status === 'resolved' ? null : (
           {
-            // no: index + 1,
             No: result.data.indexOf(item) + 1,
             username: item.student,
             id: item.ID,
@@ -67,7 +59,7 @@ const Lab1 = () => {
   
   return (
     <div>
-      <Navbar1 />
+      <Navbar2 />
       <div className='d-flex flex-row'>
         <div className='side-bar'>
           <div className='d-flex flex-row m-2' style={{textAlign:'center',border:'2px solid black',borderRadius:'25px'}}>

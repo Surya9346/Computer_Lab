@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const RaiseIssue = () => {
   const user = document.cookie.split('=')[1]
-  // State to manage the selected option
   const [selectedLab, setSelectedLab] = useState('');
   const [selectedPC, setSelectedPC] = useState('');
   const [selectedIssue, setSelectedIssue] = useState('');
@@ -17,7 +16,6 @@ const RaiseIssue = () => {
     setSelectedIssue(event.target.value);
   };
 
-  // Event handler for dropdown change
   const handleDropdownChange = (event) => {
     setSelectedLab(event.target.value);
   };
