@@ -6,10 +6,6 @@ import Navbar2 from '../Navbar2'
 
 const Lab1 = () => {
   const user = document.cookie.split('=')[1]
-
-  // const getIssues = async () => {
-  //   try {
-
   const [show, setShow] = useState(false);
   const [lab, setLab] = useState('');
   const [pc, setPc] = useState('');
