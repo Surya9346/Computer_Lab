@@ -98,6 +98,7 @@ const StudentLogin = () => {
                     placeholder="Enter your password"
                 />
               </div>
+              <p onClick={forgotPasswordHandler}><a href=''>Forgot Password?</a></p>
               <div className='d-flex justify-content-center'>
                 <Link to='/StudentPageOne'>
                   <button type="submit" className="btn" onClick={loginHandler}>
@@ -105,8 +106,6 @@ const StudentLogin = () => {
                   </button>
                 </Link>
               </div>
-              <br/>
-              <p onClick={forgotPasswordHandler}><a href=''>Forgot Password?</a></p>
           </form>
         </div>
       </div>
