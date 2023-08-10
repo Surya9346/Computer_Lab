@@ -30,12 +30,24 @@ const StudentLogin = () => {
 
   const forgotPasswordCall = async () => {
     try {
+      if(!susername) {
+        alert('Please enter your username')
+        return
+      }
+
       const res = await axios.get('http://localhost:5000/api/student/forgotPassword/' + susername)
-      alert("Password sent to your email")
-      console.log(res)
+
+      if(res.status === 200)
+      {
+        alert("Password sent to your email")
+      }
+      else
+      {
+        alert("Invalid Username")
+      }
     }
     catch(err) {
-      console.log(err)
+      alert("Invalid Username")
     }
   }
 
@@ -66,6 +78,7 @@ const StudentLogin = () => {
       }
     }
     catch(err) {
+      alert('invalid credentials')
       console.log(err)
     }
   };
