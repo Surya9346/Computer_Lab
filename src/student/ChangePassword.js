@@ -40,7 +40,6 @@ const ChangePassword = () => {
             })
             const jsonData = await response.json()
             
-            // check if jsonData contain field 'affectedRows'
             if(jsonData.affectedRows === 1) {
                 window.location.href = '/StudentLogin'
             }

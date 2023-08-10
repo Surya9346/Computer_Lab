@@ -34,13 +34,9 @@ const Lab1 = () => {
   const APIcall = async () => {
     try {
       let result = await axios.get('http://localhost:5000/api/issues/' + lab + '/' + pc)
-      // setData(result.data)
-      // console.log(result.data)
       const transformedData = result.data.map(item => (
-        // if item status is resolved then don't add it to the table
         item.status === 'resolved' ? null : (
           {
-            // no: index + 1,
             No: result.data.indexOf(item) + 1,
             username: item.student,
             id: item.ID,

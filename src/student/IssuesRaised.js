@@ -16,7 +16,6 @@ const IssuesRaised = () => {
       console.log(result.data)
 
       const transformedData = result.data.map(item => ({
-        // no: index + 1,
         No: result.data.indexOf(item) + 1,
         Lab: item.lab,
         PcNo: item.pc,
@@ -32,8 +31,6 @@ const IssuesRaised = () => {
       console.log(err)
     }
   }
-
-  // make a GET request to get all the issues raised by the student
 
   useEffect(() => {
     APIcall();

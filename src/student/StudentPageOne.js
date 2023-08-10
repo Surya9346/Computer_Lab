@@ -4,9 +4,7 @@ import {Link} from 'react-router-dom'
 import Navbar2 from '../Navbar2'
 
 const StudentPageOne = () => {
-  // const user = window.location.search.split('=')[1]
   const user = document.cookie.split('=')[1]
-
   const logoutHandler = (e) => {
     e.preventDefault()
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
