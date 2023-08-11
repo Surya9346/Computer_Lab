@@ -4,7 +4,7 @@ import IssuesTable from './IssuesTable'
 import axios from 'axios'
 import Navbar2 from '../Navbar2'
 
-const Lab1 = () => {
+const LabDetails = () => {
   const user = document.cookie.split('=')[1]
   const [show, setShow] = useState(false);
   const [lab, setLab] = useState('');
@@ -144,4 +144,4 @@ const Lab1 = () => {
   )
 }
 
-export default Lab1;
+export default LabDetails;
